@@ -27,12 +27,22 @@ namespace ImageEditorSample
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Invoked when image in <see cref="SfImageEditor"/> is loaded.
+        /// </summary>
+        /// <param name="sender">Image editor</param>
+        /// <param name="e">event arguments</param>
         private void SfImageEditor_Loaded(object sender, ImageLoadedEventArgs e)
         {           
             comboBox.SelectionChanged += ComboBox_SelectionChanged;
             comboBox.SelectedIndex = 0;
         }
 
+        /// <summary>
+        /// Invoked when selection of the combo box gets changed.
+        /// </summary>
+        /// <param name="sender">Combo box</param>
+        /// <param name="e">event arguments</param>
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var combo = sender as ComboBox;
@@ -44,8 +54,8 @@ namespace ImageEditorSample
             }
             else if (combo.SelectedIndex == 1)
             {
-                // Original
-                editor.ToggleCropping(float.NaN, float.NaN);
+                // Custom
+                editor.ToggleCropping(new Rect());
             }
             else if (combo.SelectedIndex == 2)
             {
@@ -69,21 +79,41 @@ namespace ImageEditorSample
             }           
         }
 
+        /// <summary>
+        /// Invoked when crop butoom is clicked.
+        /// </summary>
+        /// <param name="sender">Crop button</param>
+        /// <param name="e">event arguments</param>
         private void Crop_Click(object sender, RoutedEventArgs e)
         {
             editor.Crop(new Rect());
         }
 
+        /// <summary>
+        /// Invoked when cancel button is clicked.
+        /// </summary>
+        /// <param name="sender">Cancel button</param>
+        /// <param name="e">event arguments</param>
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
             editor.ToggleCropping();
         }
 
+        /// <summary>
+        /// Invoked when save button is clicked.
+        /// </summary>
+        /// <param name="sender">Save button</param>
+        /// <param name="e">event arguments</param>
         private void Save_Click(object sender, RoutedEventArgs e)
         {
             editor.Save();
         }
 
+        /// <summary>
+        /// Invoked when reset button is clicked.
+        /// </summary>
+        /// <param name="sender">Reset button</param>
+        /// <param name="e">event arguments.</param>
         private void Reset_Click(object sender, RoutedEventArgs e)
         {
             editor.Reset();

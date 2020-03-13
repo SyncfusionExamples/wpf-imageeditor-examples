@@ -31,7 +31,7 @@
             <TextBlock Grid.Row="0" Text="Cropping Ratio" FontWeight="SemiBold"></TextBlock>
             <ComboBox Grid.Row="1" x:Name="comboBox" Margin="0,10,0,0"> 
                 <ComboBoxItem>Square 1 x 1</ComboBoxItem>
-                <ComboBoxItem>Original</ComboBoxItem>
+                <ComboBoxItem>Custom</ComboBoxItem>
                 <ComboBoxItem>3:2</ComboBoxItem>
                 <ComboBoxItem>4:3</ComboBoxItem>
                 <ComboBoxItem>5:4</ComboBoxItem>
