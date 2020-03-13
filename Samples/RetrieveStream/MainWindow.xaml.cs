@@ -29,10 +29,15 @@ namespace ImageEditorSample
         {
             InitializeComponent();
         }
+
+        /// <summary>
+        /// Invoked before image getting saved.
+        /// </summary>
+        /// <param name="sender">Image editor</param>
+        /// <param name="e">event arguments</param>
         private void Editor_ImageSaving(object sender, ImageSavingEventArgs e)
         {
             e.Cancel = true;
-
             e.Stream.Seek(0, 0);
             BitmapImage bitmapImage = new BitmapImage();
             bitmapImage.BeginInit();
@@ -41,13 +46,14 @@ namespace ImageEditorSample
             image.Source = bitmapImage;
         }
 
-        private void Editor_ImageLoaded(object sender, ImageLoadedEventArgs e)
-        {
-            editor.AddShape(ShapeType.Rectangle, new PenSettings());
-        }
-
+        /// <summary>
+        /// Invoked when toolbar item is clicked.
+        /// </summary>
+        /// <param name="sender">Toolbar item</param>
+        /// <param name="e">event arguments</param>
         private void ToolbarSettings_ToolbarItemSelected(object sender, ToolbarItemSelectedEventArgs e)
         {
+            /// Cancel the default functionality only for save icon.
             if (e.ToolbarItem.Name == "Save")
             {
                 e.Cancel = true;

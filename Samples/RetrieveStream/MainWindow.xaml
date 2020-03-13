@@ -15,7 +15,7 @@
         </Grid.ColumnDefinitions>
         
         <editor:SfImageEditor x:Name="editor" ImageSaving="Editor_ImageSaving" 
-                               ImageSource="Assets\RoadView.jpeg" ImageLoaded="Editor_ImageLoaded">
+                               ImageSource="Assets\RoadView.jpeg" >
             <editor:SfImageEditor.ToolbarSettings>
                 <editor:ToolbarSettings ToolbarItemSelected="ToolbarSettings_ToolbarItemSelected"></editor:ToolbarSettings>
             </editor:SfImageEditor.ToolbarSettings>
@@ -29,10 +29,10 @@
             </Grid.RowDefinitions>
             <TextBlock Margin="10" Grid.Row="0" Foreground="Green" FontSize="15" TextWrapping="Wrap" Text="Note : Click on the save icon in the toolbar to retrieve edited image as stream and this can be used for exporting."></TextBlock>
             <TextBlock Margin="10" Grid.Row="1" HorizontalAlignment="Center" FontSize="14"  TextWrapping="Wrap" Text="Retrieved stream"></TextBlock>
-           
-                <Image Grid.Row="2" x:Name="image" ></Image>
-           
+
+            <Image Grid.Row="2" x:Name="image" ></Image>
+
         </Grid>
-      
+
     </Grid>
 </Window>
