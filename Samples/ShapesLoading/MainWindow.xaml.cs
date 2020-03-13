@@ -27,6 +27,11 @@ namespace ImageEditorSample
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Invoked when the image in the <see cref="SfImageEditor"/> is loaded.
+        /// </summary>
+        /// <param name="sender">Image editor</param>
+        /// <param name="e">event arguments</param>
         private void SfImageEditor_Loaded(object sender, ImageLoadedEventArgs e)
         {
             editor.AddShape(ShapeType.Circle, new PenSettings()
