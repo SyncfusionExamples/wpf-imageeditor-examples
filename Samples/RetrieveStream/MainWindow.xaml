@@ -1,0 +1,38 @@
+﻿<Window x:Class="ImageEditorSample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ImageEditorSample"
+        mc:Ignorable="d"
+        xmlns:editor="http://schemas.syncfusion.com/wpf"
+        Title="Retrieve image stream" Height="450" Width="800">
+    <Grid Margin="15">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
+        <editor:SfImageEditor x:Name="editor" ImageSaving="Editor_ImageSaving" 
+                               ImageSource="Assets\RoadView.jpeg" >
+            <editor:SfImageEditor.ToolbarSettings>
+                <editor:ToolbarSettings ToolbarItemSelected="ToolbarSettings_ToolbarItemSelected"></editor:ToolbarSettings>
+            </editor:SfImageEditor.ToolbarSettings>
+        </editor:SfImageEditor>
+
+        <Grid Grid.Column="1" Margin="10" VerticalAlignment="Top">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock Margin="10" Grid.Row="0" Foreground="Green" FontSize="15" TextWrapping="Wrap" Text="Note : Click on the save icon in the toolbar to retrieve edited image as stream and this can be used for exporting."></TextBlock>
+            <TextBlock Margin="10" Grid.Row="1" HorizontalAlignment="Center" FontSize="14"  TextWrapping="Wrap" Text="Retrieved stream"></TextBlock>
+
+            <Image Grid.Row="2" x:Name="image" ></Image>
+
+        </Grid>
+
+    </Grid>
+</Window>

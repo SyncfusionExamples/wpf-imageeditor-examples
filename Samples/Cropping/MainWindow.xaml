@@ -1,0 +1,59 @@
+﻿<Window x:Class="ImageEditorSample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ImageEditorSample"
+        mc:Ignorable="d"
+        xmlns:editor="http://schemas.syncfusion.com/wpf"
+        Title="Cropping" Height="450" Width="800">
+    <Grid Margin="15">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <editor:SfImageEditor x:Name="editor" 
+                              ImageLoaded="SfImageEditor_Loaded" ImageSource="Assets\AerialView.jpg">
+            <editor:SfImageEditor.ToolbarSettings>
+                <editor:ToolbarSettings IsToolbarVisiblity="False"></editor:ToolbarSettings>
+            </editor:SfImageEditor.ToolbarSettings>
+        </editor:SfImageEditor>
+
+        <Grid Grid.Column="1" Margin="0,10,0,0" VerticalAlignment="Top" >
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+           
+            <TextBlock Grid.Row="0" Text="Cropping Ratio" FontWeight="SemiBold"></TextBlock>
+            <ComboBox Grid.Row="1" x:Name="comboBox" Margin="0,10,0,0"> 
+                <ComboBoxItem>Square 1 x 1</ComboBoxItem>
+                <ComboBoxItem>Custom</ComboBoxItem>
+                <ComboBoxItem>3:2</ComboBoxItem>
+                <ComboBoxItem>4:3</ComboBoxItem>
+                <ComboBoxItem>5:4</ComboBoxItem>
+                <ComboBoxItem>16:9</ComboBoxItem>
+            </ComboBox>
+
+            <Grid Margin="0,15,0,0" Grid.Row="2" >
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Row="0" x:Name="crop" Grid.Column="0" Content="Crop" Click="Crop_Click"></Button>
+                <Button Grid.Row="0" x:Name="cancel" Grid.Column="1" Margin="10,0,0,0" Content="Cancel" Click="Cancel_Click"></Button>
+                <Button Grid.Row="1" Grid.Column="0" x:Name="save" Content="Save " Margin="0,10,0,0" Click="Save_Click"></Button>
+                <Button Grid.Row="1" Grid.Column="1" x:Name="reset" Content="Reset" Margin="10,10,0,0" Click="Reset_Click"></Button>
+            </Grid>
+           
+        </Grid>
+      
+    </Grid>
+</Window>
