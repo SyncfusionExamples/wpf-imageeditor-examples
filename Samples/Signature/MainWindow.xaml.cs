@@ -27,17 +27,33 @@ namespace ImageEditorSample
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Invoked when <see cref="SfImageEditor"/> is loaded.
+        /// </summary>
+        /// <param name="sender">Image editor</param>
+        /// <param name="e">event arguments</param>
         private void SfImageEditor_Loaded(object sender, RoutedEventArgs e)
         {
-            editor.AddShape(ShapeType.Path, new PenSettings());
+            var imageEditor = sender as SfImageEditor;
+            imageEditor.AddShape(ShapeType.Path, new PenSettings() { Stroke = new SolidColorBrush(Colors.Red), PathStrokeWidth = 3 });
         }
 
+        /// <summary>
+        /// Invoked when clean button is clicked.
+        /// </summary>
+        /// <param name="sender">Clear button</param>
+        /// <param name="e">event arguments</param>
         private void Clear_Click(object sender, RoutedEventArgs e)
-        {
+        {            
             editor.Reset();
             editor.AddShape(ShapeType.Path, new PenSettings());
         }
 
+        /// <summary>
+        /// Invoked when save button is clicked.
+        /// </summary>
+        /// <param name="sender">Save button</param>
+        /// <param name="e">event arguments.</param>
         private void Save_Click(object sender, RoutedEventArgs e)
         {
             editor.Save();

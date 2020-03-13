@@ -14,16 +14,18 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         
-        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Draw your signature" 
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="Create signature" 
                    FontWeight="SemiBold" FontSize="18" Foreground="SeaGreen"></TextBlock>
+
+        <Border Grid.Row="1" BorderBrush="LightGray" BorderThickness="1" Margin="20,0,20,0">
         
-        <editor:SfImageEditor BorderBrush="LightGray" BorderThickness="1" Grid.Row="1" x:Name="editor" 
-                              Loaded="SfImageEditor_Loaded">
+        <editor:SfImageEditor x:Name="editor" Loaded="SfImageEditor_Loaded">
             <editor:SfImageEditor.ToolbarSettings>
                 <editor:ToolbarSettings IsToolbarVisiblity="False"></editor:ToolbarSettings>
             </editor:SfImageEditor.ToolbarSettings>
         </editor:SfImageEditor>
-        
+        </Border>
+
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal"
                     Grid.Row="2" >
 
