@@ -28,24 +28,20 @@ namespace ImageEditorSample
         }
 
         /// <summary>
-        /// Invoked when image in <see cref="SfImageEditor"/> is loaded.
-        /// </summary>
-        /// <param name="sender">Image editor</param>
-        /// <param name="e">event arguments</param>
-        private void SfImageEditor_Loaded(object sender, ImageLoadedEventArgs e)
-        {           
-            comboBox.SelectionChanged += ComboBox_SelectionChanged;
-            comboBox.SelectedIndex = 0;
-        }
-
-        /// <summary>
         /// Invoked when selection of the combo box gets changed.
         /// </summary>
         /// <param name="sender">Combo box</param>
         /// <param name="e">event arguments</param>
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var combo = sender as ComboBox;
+            if (editor == null || !IsLoaded) return;
+            var combo = (sender as ComboBox);
+            var viewModel = combo.DataContext as ViewModel;
+
+            if (viewModel != null)
+            {
+                viewModel.IsEnabled = combo.SelectedIndex == 6 ? false : true;
+            }
 
             if (combo.SelectedIndex == 0)
             {
@@ -76,7 +72,7 @@ namespace ImageEditorSample
             {
                 // 16:9
                 editor.ToggleCropping(16, 9);
-            }           
+            }
         }
 
         /// <summary>
@@ -86,7 +82,9 @@ namespace ImageEditorSample
         /// <param name="e">event arguments</param>
         private void Crop_Click(object sender, RoutedEventArgs e)
         {
+            var viewModel = (sender as Button).DataContext as ViewModel;
             editor.Crop(new Rect());
+            viewModel.SelectedIndex = 6;
         }
 
         /// <summary>
@@ -96,7 +94,9 @@ namespace ImageEditorSample
         /// <param name="e">event arguments</param>
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
+            var viewModel = (sender as Button).DataContext as ViewModel;
             editor.ToggleCropping();
+            viewModel.SelectedIndex = 6;
         }
 
         /// <summary>
