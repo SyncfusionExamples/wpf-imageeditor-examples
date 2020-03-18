@@ -50,8 +50,8 @@ namespace ImageEditorSample
             }
             else if (combo.SelectedIndex == 1)
             {
-                // Original
-                editor.ToggleCropping(float.NaN, float.NaN);
+                // Custom
+                editor.ToggleCropping(new Rect());
             }
             else if (combo.SelectedIndex == 2)
             {
