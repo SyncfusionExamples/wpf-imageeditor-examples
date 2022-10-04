@@ -1,6 +1,6 @@
 # WPF Image Editor examples
 
-This repository contains samples for [Syncfusion WPF Image editor] (https://help.syncfusion.com/wpf/image-editor/getting-started) control.
+This repository contains samples for [Syncfusion WPF Image editor](https://help.syncfusion.com/wpf/image-editor/getting-started) control.
 
 ## Syncfusion controls
 
